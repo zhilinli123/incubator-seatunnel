@@ -31,7 +31,7 @@ Write data to Clickhouse can also be done using JDBC
 | password                              | string  | yes      | -             |
 | clickhouse.config                     | map     | no       |               |
 | bulk_size                             | string  | no       | 20000         |
-| batch_interval_ms                     | string  | no       | 5000         |
+| batch_interval_ms                     | string  | no       | 5000          |
 | split_mode                            | string  | no       | false         |
 | sharding_key                          | string  | no       | -             |
 | primary_key                           | string  | no       | -             |
