@@ -51,23 +51,23 @@ Read external data source data through JDBC.
 
 ## Data Type Mapping
 
-| Seatunnel Data type |                                      Mysql Data type                                       | xxx Data type | xxx Data type |
-|---------------------|--------------------------------------------------------------------------------------------|---------------|---------------|
-| BIGINT              | BIGINT<br/>INT UNSIGNED                                                                    | xxx           | xxx           |
-| STRING              | VARCHAR(N)<BR/>CHAR(N)<BR/>TEXT<br/>TINYTEXT<br/>MEDIUMTEXT<br/>LONGTEXT<br/>JSON<br/>ENUM | xxx           | xxx           |
-| BOOLEAN             | BOOLEAN                                                                                    | xxx           | xxx           |
-| TINYINT             | TINYINT                                                                                    | xxx           | xxx           |
-| SMALLINT            | SMALLINT<br/>TINYINT UNSIGNED                                                              | xxx           | xxx           |
-| INT                 | INT<br/>SMALLINT UNSIGNED<br/>MEDIUMINT<br/>MEDIUMINT UNSIGNED                             | xxx           | xxx           |
-| BIGINT              | STRING                                                                                     | xxx           | xxx           |
-| FLOAT               | FLOAT<br/>FLOAT UNSIGNED                                                                   | xxx           | xxx           |
-| DOUBLE              | DOUBLE<br/>DOUBLE UNSIGNED                                                                 | xxx           | xxx           |
-| DECIMAL(P, S)       | DECIMAL(P, S)                                                                              | xxx           | xxx           |
-| BYTES               | BIT                                                                                        | xxx           | xxx           |
-| DATE                | DATE                                                                                       | xxx           | xxx           |
-| TIME                | TIME                                                                                       | xxx           | xxx           |
-| TIMESTAMP           | DATETIME [(p)]                                                                             | xxx           | xxx           |
-| NULL                | NULL                                                                                       | xxx           | xxx           |
+|                                      Mysql Data type                                       | Seatunnel Data type |
+|--------------------------------------------------------------------------------------------|---------------------|
+| BIGINT<br/>INT UNSIGNED                                                                    | BIGINT              |
+| VARCHAR(N)<BR/>CHAR(N)<BR/>TEXT<br/>TINYTEXT<br/>MEDIUMTEXT<br/>LONGTEXT<br/>JSON<br/>ENUM | STRING              |
+| BOOLEAN                                                                                    | BOOLEAN             |
+| TINYINT                                                                                    | TINYINT             |
+| SMALLINT<br/>TINYINT UNSIGNED                                                              | SMALLINT            |
+| INT<br/>SMALLINT UNSIGNED<br/>MEDIUMINT<br/>MEDIUMINT UNSIGNED                             | INT                 |
+| STRING                                                                                     | BIGINT              |
+| FLOAT<br/>FLOAT UNSIGNED                                                                   | FLOAT               |
+| DOUBLE<br/>DOUBLE UNSIGNED                                                                 | DOUBLE              |
+| DECIMAL(P, S)                                                                              | DECIMAL(P, S)       |
+| BIT                                                                                        | BYTES               |
+| DATE                                                                                       | DATE                |
+| TIME                                                                                       | TIME                |
+| DATETIME [(p)]                                                                             | TIMESTAMP           |
+| NULL                                                                                       | NULL                |
 
 ## Options
 
