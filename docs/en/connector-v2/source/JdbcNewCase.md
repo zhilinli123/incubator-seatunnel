@@ -161,8 +161,7 @@ Jdbc {
     partition_lower_bound = 1
     # Read end boundary
     partition_upper_bound = 500
-    partition_num = 5
-    
+    partition_num = 10
 }
 ```
 
