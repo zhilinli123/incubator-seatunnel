@@ -94,7 +94,16 @@ Read external data source data through JDBC.
 
 ### simple:
 
+> This is to access your data source according to your query parameter We can use this if we don't have a speed requirement
+
 ```
+# Defining the runtime environment
+env {
+  # You can set flink configuration here
+  execution.parallelism = 2
+  job.mode = "BATCH"
+}
+
 Jdbc {
     url = "jdbc:mysql://localhost/test?serverTimezone=GMT%2b8"
     driver = "com.mysql.cj.jdbc.Driver"
@@ -103,9 +112,20 @@ Jdbc {
     password = "123456"
     query = "select * from type_bin"
 }
+
+transform {
+    # If you would like to get more information about how to configure seatunnel and see full list of transform plugins,
+    # please go to https://seatunnel.apache.org/docs/transform/sql
+}
+
+sink {
+Console {}
+}
 ```
 
 ### parallel:
+
+> Read your query table in parallel with the shard field you configured and the shard data  You can do this if you want to read the whole table
 
 ```
 Jdbc {
@@ -114,9 +134,35 @@ Jdbc {
     connection_check_timeout_sec = 100
     user = "root"
     password = "123456"
+    # Define query logic as required
+    query = "select * from type_bin"
+    # Parallel sharding reads fields
+    partition_column = "id"
+    # Number of fragments
+    partition_num = 10
+}
+```
+
+### parallel boundary:
+
+> It is more efficient to specify the data within the upper and lower bounds of the query It is more efficient to read your data source according to the upper and lower boundaries you configured
+
+```
+Jdbc {
+    url = "jdbc:mysql://localhost/test?serverTimezone=GMT%2b8"
+    driver = "com.mysql.cj.jdbc.Driver"
+    connection_check_timeout_sec = 100
+    user = "root"
+    password = "123456"
+    # Define query logic as required
     query = "select * from type_bin"
     partition_column = "id"
-    partition_num = 10
+    # Read start boundary
+    partition_lower_bound = 1
+    # Read end boundary
+    partition_upper_bound = 500
+    partition_num = 5
+    
 }
 ```
 
